@@ -11,13 +11,13 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="Assigment-4" />
+          <element id="module-output" name="Animal" />
         </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/Assigment-4-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="Assigment-4/web/Web" />
+      <element id="javaee-facet-resources" facet="Animal/web/Web" />
     </root>
   </artifact>
 </component>
