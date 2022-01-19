@@ -1,4 +1,5 @@
 package GenericTypes;
+import AbstractClasses.Animal;
 import Interfaces.Moveable;
 
 import java.util.ArrayList;
@@ -6,7 +7,7 @@ import java.util.List;
 
 public class Habitat<T extends Moveable> {
     int habitatSize;
-    List<T> animals;
+    List<Animal> animals;
 
     public Habitat(int habitatSize) {
         this.habitatSize = habitatSize;
@@ -17,20 +18,20 @@ public class Habitat<T extends Moveable> {
         return habitatSize;
     }
 
-    public List<T> getAnimals() {
+    public List<Animal> getAnimals() {
         return animals;
     }
 
-    public String addAnimal(T animal) {
-        String msg;
+    public String addAnimal(Animal animal) {
+        String res;
         if (animal.getComfortableSpace() < this.habitatSize) {
-            this.animals.add(animal);
-            this.habitatSize -= animal.getComfortableSpace();
-            msg = "There is available " + habitatSize + " places";
+           animals.add(animal);
+           habitatSize =habitatSize - animal.getComfortableSpace();
+            res = "There is  " + habitatSize + " places";
         }
         else {
-            msg = ("There is no space!!!");
+            res = ("There is no space!!!");
         }
-        return msg;
+        return res;
     }
 }
