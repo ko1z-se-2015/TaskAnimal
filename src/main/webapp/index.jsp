@@ -17,11 +17,11 @@
         <option value="fox">3. Fox</option>
         <option value="turtle">4. Turtle</option>
         <option value="crow">5. Crow</option>
-        <option value="sparrow">5. Sparrow</option>
-        <option value="ostrich">5. Ostrich</option>
-        <option value="penguin">5. Penguin</option>
-        <option value="shark">5. Shark</option>
-        <option value="pike">5. Pike</option>
+        <option value="sparrow">6. Sparrow</option>
+        <option value="ostrich">7. Ostrich</option>
+        <option value="penguin">8. Penguin</option>
+        <option value="shark">9. Shark</option>
+        <option value="pike">10. Pike</option>
     </select>
     <select name="habitat" id="habitat">
         <option value="cell">1. Cell</option>
@@ -42,6 +42,17 @@ String error = (String) request.getAttribute("error");
         out.println(res + "<br>");
 %>
 
+<%
+    String cage = (String) request.getAttribute("cageAnimal");
+    String cell = (String) request.getAttribute("cellAnimal");
+    String aquarium = (String) request.getAttribute("aquariumAnimal");
+%>
+<p>Animals in cage: <%=cage%></p>
+<br>
+<p>Animals in cell: <%=cell%></p>
+<br>
+<p>Animals in aquarium: <%=aquarium%></p>
+<br>
 
 </body>
 </html>

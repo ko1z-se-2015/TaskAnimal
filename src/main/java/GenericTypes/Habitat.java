@@ -27,7 +27,7 @@ public class Habitat<T extends Moveable> {
         if (animal.getComfortableSpace() < this.habitatSize) {
            animals.add(animal);
            habitatSize =habitatSize - animal.getComfortableSpace();
-            res = "There is  " + habitatSize + " places";
+            res = "There is  " + habitatSize + " places in ";
         }
         else {
             res = ("There is no space!!!");

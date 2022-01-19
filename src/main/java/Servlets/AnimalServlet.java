@@ -19,19 +19,18 @@ import java.util.ArrayList;
 
 @WebServlet("/AnimalServlet")
 public class AnimalServlet extends HttpServlet {
-
+    Cage cage1 = new Cage(10);
+    Aquarium aquarium1 = new Aquarium(10);
+    Cell cell1 = new Cell(10);
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String select1 = request.getParameter("animals");
         String habitat = request.getParameter("habitat");
         String res = "";
         String error = "";
-        Cage cage1 = new Cage(10);
-        Aquarium aquarium1 = new Aquarium(10);
-        Cell cell1 = new Cell(10);
         switch (select1) {
             case "tiger":
                 if(habitat.equals("cage")){
-                    res = cage1.addAnimal(new Tiger()) + "    "+cage1.getHabitatSize();
+                    res = cage1.addAnimal(new Tiger()) + "cage";
                 }else{
                     error = "The environment is not suitable for the animal";
                 }
@@ -39,7 +38,7 @@ public class AnimalServlet extends HttpServlet {
                 break;
             case "fox":
                 if(habitat.equals("cage")){
-                    res = cage1.addAnimal(new Fox());
+                    res = cage1.addAnimal(new Fox()) + "cage";
                 }else{
                     error = "The environment is not suitable for the animal";
                 }
@@ -47,76 +46,78 @@ public class AnimalServlet extends HttpServlet {
                 break;
             case "wolf":
                 if(habitat.equals("cage")){
-                    res = cage1.addAnimal(new Wolf());
+                    res = cage1.addAnimal(new Wolf()) + "cage";
                 }else{
                     error = "The environment is not suitable for the animal";
                 }
                 break;
             case "turtle":
                 if(habitat.equals("cage")){
-                    res = cage1.addAnimal(new Turtle());
+                    res = cage1.addAnimal(new Turtle()) + "cage";
                 }else{
                     error = "The environment is not suitable for the animal";
                 }
                 break;
             case "penguin":
                 if(habitat.equals("cage")){
-                    res = cage1.addAnimal(new Penguin());
+                    res = cage1.addAnimal(new Penguin()) + "cage";
                 }else{
                     error = "The environment is not suitable for the animal";
                 }
                 break;
-            case "Ostrich":
+            case "ostrich":
                 if(habitat.equals("cage")){
-                    res = cage1.addAnimal(new Ostrich());
+                    res = cage1.addAnimal(new Ostrich()) + "cage";
                 }else{
                     error = "The environment is not suitable for the animal";
                 }
                 break;
             case "crow":
                 if(habitat.equals("cell")){
-                    res = cell1.addAnimal(new Crow());
+                    res = cell1.addAnimal(new Crow()) + "cell";
                 }else{
                     error = "The environment is not suitable for the animal";
                 }
                 break;
             case "sparrow":
                 if(habitat.equals("cell")){
-                    res = cell1.addAnimal(new Sparrow());
+                    res = cell1.addAnimal(new Sparrow()) + "cell";
                 }else{
                     error = "The environment is not suitable for the animal";
                 }
                 break;
             case "shark":
                 if(habitat.equals("aquarium")){
-                    res = aquarium1.addAnimal(new Shark());
+                    res = aquarium1.addAnimal(new Shark()) + "aquarium";
                 }else{
                     error = "The environment is not suitable for the animal";
                 }
                 break;
             case "pike":
                 if(habitat.equals("aquarium")){
-                    res = aquarium1.addAnimal(new Pike());
+                    res = aquarium1.addAnimal(new Pike()) + "aquarium";
                 }else{
                     error = "The environment is not suitable for the animal";
                 }
                 break;
         }
+
+        String cellAnimal = "";
+        cellAnimal = cell1.getAnimals().toString();
+        String cageAnimal = "";
+        cageAnimal = cage1.getAnimals().toString();
+        String aquariumAnimal = "";
+        aquariumAnimal = aquarium1.getAnimals().toString();
+
+        request.setAttribute("cageAnimal", cageAnimal);
+        request.setAttribute("cellAnimal", cellAnimal);
+        request.setAttribute("aquariumAnimal", aquariumAnimal);
         request.setAttribute("res", res);
         request.setAttribute("error",error);
         request.getRequestDispatcher("index.jsp").forward(request,response);
     }
 
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        int numAnimals = Integer.parseInt(request.getParameter("numAnimals"));
-//        int availableSize = Integer.parseInt(request.getParameter("availableSize"));
-//        String msg3 = "";
-//        if (availableSize - numAnimals >= 0) {
-//            msg3 = "Animals was added successfully";
-//        }else {
-//            msg3 = "There is no space!!! Too much animals were added";
-//        }
-//        request.setAttribute("msg3", msg3);
-//        request.getRequestDispatcher("index.jsp").forward(request, response);
-//    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+    }
 }
