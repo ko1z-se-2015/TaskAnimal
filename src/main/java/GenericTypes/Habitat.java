@@ -30,7 +30,7 @@ public class Habitat<T extends Moveable> {
             res = "There is  " + habitatSize + " places in ";
         }
         else {
-            res = ("There is no space!!!");
+            res = ("There is no space in ");
         }
         return res;
     }

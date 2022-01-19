@@ -9,4 +9,8 @@ public class Penguin extends Bird implements Swimable, Walkable {
     public int getComfortableSpace() {
         return 1;
     }
+    @Override
+    public String toString() {
+        return "Penguin";
+    }
 }

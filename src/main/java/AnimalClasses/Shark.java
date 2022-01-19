@@ -8,4 +8,8 @@ public class Shark extends Fish implements Swimable {
     public int getComfortableSpace() {
         return 1;
     }
+    @Override
+    public String toString() {
+        return "Shark";
+    }
 }

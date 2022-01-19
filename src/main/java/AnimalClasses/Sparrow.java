@@ -8,4 +8,8 @@ public class Sparrow extends Bird implements Flyable {
     public int getComfortableSpace() {
         return 1;
     }
+    @Override
+    public String toString() {
+        return "Sparrow";
+    }
 }

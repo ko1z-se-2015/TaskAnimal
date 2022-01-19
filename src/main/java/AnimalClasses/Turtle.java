@@ -9,4 +9,8 @@ public class Turtle extends Animal implements Swimable, Walkable {
     public int getComfortableSpace() {
         return 1;
     }
+    @Override
+    public String toString() {
+        return "Turtle";
+    }
 }
