@@ -3,11 +3,11 @@
     <output-path>$PROJECT_DIR$/target</output-path>
     <properties id="maven-jee-properties">
       <options>
-        <module>Assigment-4</module>
+        <module>Animal</module>
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="Assigment-4-1.0-SNAPSHOT.war">
+    <root id="archive" name="Animal-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="Animal:war exploded" />
     </root>
   </artifact>
